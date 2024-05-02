@@ -13,8 +13,7 @@ export class NoteListService {
     normalNotes: Note[] = [];
     firestore: Firestore = inject(Firestore);
     
-    //items$;
-    //items;
+    
 
 
     unsubTrash;
@@ -24,17 +23,10 @@ export class NoteListService {
     constructor() { 
       this.unsubNotes = this.subNotesList();
       this.unsubTrash = this.subTrashList();
-
-      
-
-      /*this.items$ = collectionData(this.getNotesRef());
-      this.items = this.items$.subscribe( (list)=> {
-        list.forEach(element => {
-            console.log(element);
-        });
-      } )*/
      
     }
+
+    
 
     setNoteObject(obj:any, id:string){
       return {
