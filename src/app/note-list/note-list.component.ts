@@ -12,14 +12,18 @@ export class NoteListComponent {
   favFilter: "all" | "fav" = "all";
   status: "notes" | "trash" = "notes";
   trashListActive = false;
-
   constructor(private noteService: NoteListService) {
     
   }
 
   getList(): Note[]{
-    if (!this.trashListActive) {
-      return this.noteService.normalNotes;
+    if (this.status == 'notes') {
+      if(this.favFilter == 'all') {
+        return this.noteService.normalNotes;
+      } else {
+        return this.noteService.normalMarkedNotes;
+      }
+      
     } else {
       return this.noteService.trashNotes; 
     }
